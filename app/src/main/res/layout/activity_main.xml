@@ -8,8 +8,13 @@
     tools:context="com.fupengpeng.cameraapp.MainActivity">
 
     <Button
-        android:onClick="startCamera"
-        android:text="StartCamera"
+        android:onClick="startCamera1"
+        android:text="StartCamera1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="startCamera2"
+        android:text="StartCamera2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
