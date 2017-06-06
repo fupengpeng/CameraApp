@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         mFilePath = mFilePath + "/" + "temp.png";
 
     }
+
+    /**
+     * 调用系统相机
+     * @param view
+     */
     public void startCamera1(View view){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,REQ_2);
@@ -51,14 +56,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void startCamera(View view){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,REQ_1);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //当返回值为 RESULT_OK  再进行处理数据
         if (resultCode == RESULT_OK){
+
             if (requestCode == REQ_1){
-                //返回饱含整个图片的二进制流
-                Bundle bundle = data.getExtras();
-                Bitmap bitmap = (Bitmap) bundle.get("data");
+                //返回包含整个图片的二进制流
+                Bundle bundle = data.getExtras();//获取bundle数据对象
+                Bitmap bitmap = (Bitmap) bundle.get("data");//从 bundle  取出数据
                 mImageView.setImageBitmap(bitmap);
             }else if (requestCode == REQ_2){
                 //到指定的路径下面去，获取图片，并设置
