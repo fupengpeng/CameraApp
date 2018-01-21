@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void startCamera1(View view){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,REQ_2);
+        startActivityForResult(intent,REQ_1);
 
     }
     public void startCamera2(View view){
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         //对系统拍照存储路径更改为我们设定的存储路径
         intent.putExtra(MediaStore.EXTRA_OUTPUT,photoUri);
 
-        startActivityForResult(intent,REQ_1);
+        startActivityForResult(intent,REQ_2);
 
     }
 
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 //到指定的路径下面去，获取图片，并设置
                 try {
                     fis = new FileInputStream(mFilePath);
+                    //将流解析成Bitmap
                     Bitmap bitmap = BitmapFactory.decodeStream(fis);
                     mImageView.setImageBitmap(bitmap);
 
